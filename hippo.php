@@ -15,3 +15,4 @@ add_action('wp_enqueue_scripts','hippoLoadStyles');
 
 //Include Section
 include_once 'Includes/frontend/shortcode.php';
+include_once 'Includes/backend/settigsPage.php';
