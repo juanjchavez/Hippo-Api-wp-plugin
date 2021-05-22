@@ -1,0 +1,66 @@
+#hipo-main{
+    font-size: 16px;
+}
+#hippo-main input, #hippo-main select{
+    background: none;
+    border: none;
+    border-bottom: solid 1px #949494;
+    border-radius: unset;
+    box-shadow: none;
+}
+#hippo-main input:focus{
+    border-width: 1.5px;
+    
+}
+#hippo-main label{
+    color:#949494;
+    font-size: 0.75em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+#hippo-main select, #hippo-main .select{
+    width: 100%;
+}
+#hippo-main .hippo-radio{
+    margin-top:10px;
+}
+#hippo-main .hippo-radio .control.column:first-of-type{
+    margin-right:10px;
+}
+#hippo-main .hippo-radio .control.column:last-of-type{
+    margin-left:10px;
+}
+#hippo-main .hippo-radio .control.column{
+    border:solid 1.5px #949494;
+
+}
+#hippo-main .hippo-radio .hippo-body {
+    text-transform: none;
+    font-size: 0.7em;
+}
+#hippo-main .hippo-radio .hippo-image {
+    padding-left:2px;
+    padding-right:2px;
+}
+#hippo-main .hippo-radio .hippo-radio-button input {
+    transform: translateX(-10px);
+}
+#hippo-main .hippo-radio .hippo-radio-button input:focus {
+    border:none;
+    outline: none;
+}
+#hippo-main .hippo-radio .hippo-title {
+    display: block;
+}
+#hippo-main .hippo-radio .house .hippo-title{
+    color: #8baddb;
+}
+#hippo-main .hippo-radio .condo .hippo-title{
+    color: #ba543b;
+}
+#hippo-main .hippo-radio .ho5 .hippo-title{
+    color: #9874ce;
+}
+#hippo-main .select::after{
+    border-color:#949494;
+}
