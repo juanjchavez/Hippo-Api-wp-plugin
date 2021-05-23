@@ -50,7 +50,12 @@ const hippoValidate = () =>{
         el.querySelector('.control').appendChild(span);
         result = false;
     }
-    
-    //console.log(toValidate);
+    if (result === false){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please fill all required fields'
+        });
+    }
     return result
 }
