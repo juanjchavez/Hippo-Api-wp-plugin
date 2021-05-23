@@ -2,7 +2,13 @@
 add_shortcode('HippoForm','hippoFormShortcode');
 function hippoFormShortcode(){
     ob_start();
+    $URL=get_option('hippoURL',false);
+    $URL=($URL != false) ? $URL : "";
+    $Token=get_option('hippoToken',false);
+    $Token=($Token != false) ? $Token : "";
     ?>
+    <input type="hidden" id="hippoURL" value="<?php echo $URL ?>">
+    <input type="hidden" id="hippoToken" value="<?php echo $Token ?>">
     <section class="section is-style-wide column " id="hippo-main">
         <form action="#" class="">
             <div class="columns">
@@ -174,7 +180,6 @@ function hippoFormShortcode(){
         </form>
     </section>
 
-    <script src="<?php echo plugin_dir_url( dirname( __DIR__ ),1).'Assets/js/hippo.js' ?>" ></script>
 
     <?php
     $output = ob_get_contents();
