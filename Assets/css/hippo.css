@@ -21,6 +21,10 @@
 #hippo-main select, #hippo-main .select{
     width: 100%;
 }
+#hippo-main span.hippo-danger{
+    color:red;
+    font-size: 0.75em;
+}
 #hippo-main .hippo-radio{
     margin-top:10px;
 }

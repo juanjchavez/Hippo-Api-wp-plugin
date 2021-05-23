@@ -149,7 +149,7 @@ function hippoFormShortcode(){
                             <span class="hippo-title">House</span>
                             <span class="hippo-body">This may be a single-family home, townhose or duplex you own and live in.</span>
                         </div>
-                        <div class="column is-1 hippo-radio-button"><input type="radio" name="type" required></div>
+                        <div class="column is-1 hippo-radio-button"><input type="radio" name="type" value="house"  required></div>
                     </label>
                 </div>
                 <div class="control column">
@@ -159,7 +159,7 @@ function hippoFormShortcode(){
                             <span class="hippo-title">Condo</span>
                             <span class="hippo-body">This is likely a multi-family building or complex in which you own a unit.</span>
                         </div>
-                        <div class="column is-1 hippo-radio-button"><input type="radio" name="type"></div>
+                        <div class="column is-1 hippo-radio-button"><input type="radio" value="condo" name="type"></div>
                     </label>
                 </div>
                 <div class="control column">
@@ -169,7 +169,7 @@ function hippoFormShortcode(){
                             <span class="hippo-title">HO5</span>
                             <span class="hippo-body">The HO5 is an open perils insurance policy for a single-family home or duplex.</span>
                         </div>
-                        <div class="column is-1 hippo-radio-button"><input type="radio" name="type"></div>
+                        <div class="column is-1 hippo-radio-button"><input type="radio" value="h05" name="type"></div>
                     </label>
                 </div>
 
