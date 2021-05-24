@@ -8,7 +8,6 @@ function hippo_getquote(){
     if ( !wp_verify_nonce( $_REQUEST['nonce'], "hippo_getquote_nonce")) {
         exit();
     }   
-    error_log("prueba");
 
     $baseURL=get_option('hippoURL',false);
     $baseURL=($baseURL != false) ? $baseURL : "";
@@ -17,9 +16,6 @@ function hippo_getquote(){
     $args=$_REQUEST["args"];
     $URL =  "$baseURL?auth_token=$Token&$args";
     $result = CallAPI($URL);
-    error_log(gettype($result));
-    error_log($result);
-
     echo $result;  
     wp_die();
 }

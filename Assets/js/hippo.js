@@ -89,8 +89,6 @@ const hippoSendForm = (el, target, formNonce) => {
         data : {action: "hippo_getquote", nonce: formNonce, args:arguments }
     }).done(function(response) {
         jQuery(el).removeClass('is-loading');
-
-        console.log(response);
         if(response.success === false) {
             Swal.fire({
                 title: 'Oops! Something went wrong',
@@ -107,6 +105,4 @@ const hippoSendForm = (el, target, formNonce) => {
             hippoFormClear();
         }
     });
-    //console.log(data);
-    
 };
