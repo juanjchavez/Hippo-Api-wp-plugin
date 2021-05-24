@@ -1,5 +1,5 @@
 #hippo-main{
-    font-size: 16px;
+    font-size: 18px;
     box-sizing:border-box ;
 }
 #hippo-main button.hippo-submit{
@@ -70,6 +70,7 @@
 #hippo-main .select::after{
     border-color:#949494;
     font-size: 0.7em;
+    margin-top: -.9em;
 }
 
 @media(min-width:1024px){

@@ -1,5 +1,5 @@
 <?php
-
+if(!defined('ABSPATH')) { exit; }
 add_action("wp_ajax_hippo_getquote", "hippo_getquote");
 add_action("wp_ajax_nopriv_hippo_getquote", "hippo_getquote");
 

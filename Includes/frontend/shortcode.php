@@ -1,4 +1,5 @@
 <?php
+if(!defined('ABSPATH')) { exit; }
 add_shortcode('HippoForm','hippoFormShortcode');
 function hippoFormShortcode(){
     $nonce = wp_create_nonce("hippo_getquote_nonce");

@@ -1,4 +1,5 @@
 <?php
+if(!defined('ABSPATH')) { exit; }
 add_action('admin_menu','hippoMenuPage');
 add_action('admin_init', 'hippoSettingsInit');
 add_action('admin_notices', 'hippoAddSettingsErrors');
