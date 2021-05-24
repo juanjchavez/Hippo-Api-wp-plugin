@@ -1,5 +1,9 @@
-#hipo-main{
+#hippo-main{
     font-size: 16px;
+    box-sizing:border-box ;
+}
+#hippo-main button.hippo-submit{
+	height:auto;
 }
 #hippo-main input[type="text"], #hippo-main select{
     background: none;
@@ -7,6 +11,7 @@
     border-bottom: solid 1px #949494;
     border-radius: unset;
     box-shadow: none;
+    font-size: 0.7em;
 }
 #hippo-main input[type="text"]:focus{
     border-width: 1.5px;
@@ -64,6 +69,7 @@
 }
 #hippo-main .select::after{
     border-color:#949494;
+    font-size: 0.7em;
 }
 
 @media(min-width:1024px){
