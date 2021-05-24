@@ -1,14 +1,10 @@
 <?php
 add_shortcode('HippoForm','hippoFormShortcode');
 function hippoFormShortcode(){
+    $nonce = wp_create_nonce("hippo_getquote_nonce");
     ob_start();
-    $URL=get_option('hippoURL',false);
-    $URL=($URL != false) ? $URL : "";
-    $Token=get_option('hippoToken',false);
-    $Token=($Token != false) ? $Token : "";
+    
     ?>
-    <input type="hidden" id="hippoURL" value="<?php echo $URL ?>">
-    <input type="hidden" id="hippoToken" value="<?php echo $Token ?>">
     <section class="section is-style-wide column " id="hippo-main">
         <form action="#" class="">
             <div class="columns">
@@ -175,7 +171,7 @@ function hippoFormShortcode(){
 
             </div>
             <div class="columns is-centered is-mobile">
-                <button class="button column is-success is-rounded is-3 is-mobile hippo-submit">Submit</button>
+                <button data-nonce="<?php echo $nonce ?>" data-target="<?php echo admin_url('admin-ajax.php') ?>" class="button column is-success is-rounded is-3 is-mobile hippo-submit">Submit</button>
             </div>
         </form>
     </section>

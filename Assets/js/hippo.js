@@ -2,7 +2,7 @@ jQuery(document).ready( function() {
     jQuery(".hippo-submit").click( function(e) {
         e.preventDefault();  
         if(hippoValidate() === true){
-            alert("validated");
+            hippoSendForm(jQuery(this), jQuery(this).attr("data-target"), jQuery(this).attr("data-nonce"));
         }
     })
 });
@@ -25,19 +25,13 @@ const hippoValidate = () =>{
             parent.appendChild(span);
             result = false;
         }
-        //console.log(value);
-        //console.log(value);
     });
     let radio = jQuery('[name="type"]');
-    console.log(radio);
     jQuery.each(radio, (index, value) => {
-        console.log(value);
         if(value.checked === true){
             type=true;
         }
     });
-    console.log(type);
-
     let el=document.querySelector('.hippo-radio');
     let span = el.querySelector('.control').querySelector('.hippo-danger');
     if(span != null){
@@ -58,4 +52,61 @@ const hippoValidate = () =>{
         });
     }
     return result
-}
+};
+
+const hippoFormClear = () => {
+    textInputs = jQuery('input[type="text"], .select select');
+    jQuery.each(textInputs, (index, value) => {
+        value.value="";
+    });
+    radioInputs = jQuery('input[type="radio"]');
+    jQuery.each(radioInputs, (index, value) => {
+        value.checked=false;
+    });
+};
+
+const hippoSendForm = (el, target, formNonce) => {
+    jQuery(el).addClass('is-loading');
+    const birthday = document.querySelector("#birthday").value;
+    data = {
+        street: encodeURIComponent(document.querySelector("#streetAddress").value),
+        city: encodeURIComponent(document.querySelector("#city").value),
+        state: encodeURIComponent(document.querySelector("#state").value),
+        zip: encodeURIComponent(document.querySelector("#zipCode").value),
+        first_name: encodeURIComponent(document.querySelector("#firstName").value),
+        last_name: encodeURIComponent(document.querySelector("#lastName").value),
+        email: encodeURIComponent(document.querySelector("#email").value),
+        phone: encodeURIComponent(document.querySelector("#phoneNumber").value),
+        date_of_birth: birthday.replace("/","").replace("/",""),
+    };
+    const arguments = `street=${data.street}&city=${data.city}&state=${data.state}&zip=${data.zip}&first_name=${data.first_name}&last_name=${data.last_name}&email=${data.email}&phone=${data.phone}&date_of_birth=${data.date_of_birth}`;
+
+
+    jQuery.ajax({
+        type : "post",
+        dataType : "json",
+        url : target,
+        data : {action: "hippo_getquote", nonce: formNonce, args:arguments }
+    }).done(function(response) {
+        jQuery(el).removeClass('is-loading');
+
+        console.log(response);
+        if(response.success === false) {
+            Swal.fire({
+                title: 'Oops! Something went wrong',
+                text: response.errors[0].message,
+                icon: 'error'
+            });
+        }
+        else {
+            Swal.fire({
+                title: 'Done!',
+                text: `Your quote is for $${response.quote_premium}`,
+                icon: 'success'
+            });
+            hippoFormClear();
+        }
+    });
+    //console.log(data);
+    
+};
